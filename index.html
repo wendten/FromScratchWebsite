@@ -1,150 +1,1815 @@
-<!doctype html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="From Scratch is a survival colony and roleplaying game about rebuilding from nothing in a hostile world.">
-  <title>From Scratch</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Colony Sim - From Scratch</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+          rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css?v=F5B6PXGd56z_BGX65XUB9qWe6qlMbIqytPdLSZreWGg" />
 </head>
+
 <body>
-  <header class="site-header" id="top">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="From Scratch home">
-        <span class="brand-mark">FS</span>
-        <span class="brand-text">From Scratch</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
-        <span>Menu</span>
-      </button>
-      <div class="nav-links" id="nav-links">
-        <a href="#game">Game</a>
-        <a href="#world">World</a>
-        <a href="#systems">Systems</a>
-        <a href="#news">News</a>
-        <a class="nav-cta" href="#wishlist">Wishlist</a>
-      </div>
+    <audio b-waz0jf3yuh id="bgMusic" autoplay loop>
+        <source src="audio/bgmusic.mp3" type="audio/mpeg">
+    </audio>
+
+    <div b-waz0jf3yuh class="site-shell"></div>
+
+    <header b-waz0jf3yuh class="topbar">
+        <a b-waz0jf3yuh class="brand" href="#home" aria-label="From Scratch home">
+            <img class="brand-logo" src="gfx/logo.png?v=DZYQafAvNpPjUaOWXKEiahtQujG8dqj_s_mftS3vk9k" alt="From Scratch logo" />
+        </a>
+
+        <nav b-waz0jf3yuh class="nav" aria-label="Primary">
+            <a b-waz0jf3yuh class="active" href="#home">Home</a>
+            <a b-waz0jf3yuh href="#about">About</a>
+            <a b-waz0jf3yuh href="#news">News</a>
+            <a b-waz0jf3yuh href="#systems">Systems</a>
+            <a b-waz0jf3yuh href="#media">Media</a>
+        </nav>
+
+        <div b-waz0jf3yuh class="wishlist">
+            <a b-waz0jf3yuh class="btn btn-gold steam-btn" href="#wishlist">
+                <img src="gfx/steam.png?v=qsJBd-D3_NkPQmyrpwSa8U8_JmMKyGqJeCzu7nlFgXM" alt="" class="steam-icon" />
+                <span b-waz0jf3yuh>Wishlist on Steam</span>
+            </a>
+
+            <form class="language-form" method="post" action="/Localization/SetLanguage">
+                <input b-waz0jf3yuh type="hidden" name="returnUrl" value="/" />
+
+                <select b-waz0jf3yuh class="language-select" name="culture" aria-label="Language" onchange="this.form.submit()">
+
+                        <option value="en" selected="selected">
+                            EN
+                        </option>
+                        <option value="da">
+                            DA
+                        </option>
+                </select>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8DSIezscFihEgYthIqhXld4TfHr1_0VXOCYHSQeSweu3HdvKs4JMUgBOfYaj2gZNG8B0ZDfTtdgzpwEzrZ-J7KPdaoiVdrLa3sMDjWsjcYjWZszHwaJB2qlNmJNUartrVgke_hYgHDr1r2Ux5WIJyvs" /></form>
+        </div>
+
+        <button b-waz0jf3yuh class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" type="button">
+            <span b-waz0jf3yuh></span><span b-waz0jf3yuh></span><span b-waz0jf3yuh></span>
+        </button>
+    </header>
+
+    <nav b-waz0jf3yuh id="mobile-menu" class="mobile-menu" aria-label="Mobile">
+        <a b-waz0jf3yuh class="active" href="#home">Home</a>
+        <a b-waz0jf3yuh href="#about">About</a>
+        <a b-waz0jf3yuh href="#news">News</a>
+        <a b-waz0jf3yuh href="#roadmap">Roadmap</a>
+        <a b-waz0jf3yuh href="#systems">Systems</a>
+        <a b-waz0jf3yuh href="#media">Media</a>
+        <a b-waz0jf3yuh href="#community">Community</a>
     </nav>
 
-    <section class="hero section-shell">
-      <div class="hero-copy">
-        <p class="eyebrow">Survival colony RPG</p>
-        <h1>Build a new society from nothing.</h1>
-        <p class="hero-text">From Scratch is a game about survivors, factions, brutal choices, settlement building, and emergent stories in a dangerous low-fantasy world.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#wishlist">Follow development</a>
-          <a class="button secondary" href="#game">Explore the game</a>
-        </div>
-      </div>
-      <div class="hero-card" aria-label="Game status card">
-        <div class="status-pill">In development</div>
-        <h2>Core fantasy</h2>
-        <p>You begin with nothing. Every tool, shelter, weapon, relationship, and settlement has to be earned.</p>
-        <ul>
-          <li>Colony survival</li>
-          <li>Action RPG elements</li>
-          <li>Deep NPC simulation</li>
-          <li>Emergent faction conflict</li>
-        </ul>
-      </div>
-    </section>
-  </header>
+    <main b-waz0jf3yuh>
+        
 
-  <main>
-    <section class="section-shell split" id="game">
-      <div>
-        <p class="eyebrow">The game</p>
-        <h2>Survive, organize, and expand.</h2>
-      </div>
-      <div class="text-block">
-        <p>From Scratch combines settlement management with grounded survival and character-driven stories. Your people need food, tools, shelter, protection, and leadership.</p>
-        <p>The world is intended to react to your decisions. A small camp can become a faction. A mistake can become a crisis. A weak survivor can become essential.</p>
-      </div>
-    </section>
-
-    <section class="feature-grid section-shell" id="systems" aria-label="Game systems">
-      <article class="feature-card">
-        <h3>Settlement building</h3>
-        <p>Gather materials, construct shelters, expand production, and turn a desperate camp into a functioning society.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Character simulation</h3>
-        <p>NPCs have needs, skills, personalities, relationships, and memories that shape how they behave.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Combat and injury</h3>
-        <p>Combat is designed around risk, stamina, wounds, equipment, and consequences rather than disposable health bars.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Crafting from materials</h3>
-        <p>Weapons, tools, and structures are affected by the materials used to create them.</p>
-      </article>
-    </section>
-
-    <section class="section-shell world-panel" id="world">
-      <div class="world-copy">
-        <p class="eyebrow">The world</p>
-        <h2>A hostile vertical forest surrounded by mountains.</h2>
-        <p>Huge trees, distant factions, scarce resources, and strange civilizations define the setting. The goal is a believable world where survival, culture, technology, and power all matter.</p>
-      </div>
-      <div class="world-stats">
-        <div>
-          <strong>100k+</strong>
-          <span>Simulated individuals planned</span>
-        </div>
-        <div>
-          <strong>600+</strong>
-          <span>Background templates planned</span>
-        </div>
-        <div>
-          <strong>Low fantasy</strong>
-          <span>Grounded tone, harsh consequences</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-shell news-section" id="news">
-      <div class="section-heading">
-        <p class="eyebrow">Development news</p>
-        <h2>Latest updates</h2>
-      </div>
-      <div class="news-grid">
-        <article class="news-card">
-          <p class="news-date">Development log</p>
-          <h3>Static site is live</h3>
-          <p>The public website is now prepared as a static site, ready for GitHub Pages hosting.</p>
-          <a href="news/static-site-live.html">Read more</a>
-        </article>
-        <article class="news-card">
-          <p class="news-date">Design note</p>
-          <h3>Why start from nothing?</h3>
-          <p>The central fantasy is not owning a kingdom. It is building one from scraps, pressure, and bad choices.</p>
-          <a href="news/starting-from-nothing.html">Read more</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-shell wishlist" id="wishlist">
-      <p class="eyebrow">Follow development</p>
-      <h2>From Scratch is currently in development.</h2>
-      <p>More screenshots, devlogs, videos, and release information will be added here as the project develops.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="https://github.com/wendten/FromScratchWebsite">View repository</a>
-        <a class="button secondary" href="mailto:">Contact</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="section-shell footer-inner">
-      <p>© <span id="year"></span> From Scratch</p>
-      <a href="#top">Back to top</a>
+<section id="home" class="hero">
+    <div class="hero-backdrop">
+        <img class="hero-bg-slide active" src="gfx/hero-bg-1.png?v=e0JdoGMR4U5m_sY7xogRDxgVH68fS5XDP4RJZ3Or8tY" alt="" />
+        <img class="hero-bg-slide" src="gfx/hero-bg-2.png?v=1dLoTad1cnpJMAE6c2V3yz0pBMoxLasbrDgIwGIw2FM" alt="" />
+        <img class="hero-bg-slide" src="gfx/hero-bg-3.png?v=HDOplFEgzOIQZD-ONQ1z-CEsV9lIWjFLrLoAI6Yto-g" alt="" />
+        <img class="hero-bg-slide" src="gfx/hero-bg-4.png?v=nU91IEppFPq1ecD8vL2yDuQ-QtTbtdbvHfBX481QlCg" alt="" />
+        <img class="hero-bg-slide" src="gfx/hero-bg-5.png?v=bnTjqR1RXkcmSOsKzSedmrS0xDQplA-m5pv-kMaN6DE" alt="" />
+        <img class="hero-bg-slide" src="gfx/hero-bg-6.png?v=y9HG6nx1L8MBt-L-aT_nPHGcZuQli4IhqUpXoAiFllg" alt="" />
     </div>
-  </footer>
 
-  <script src="assets/js/site.js"></script>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+        <div class="hero-copy">
+            <h1>
+                <span>Tame the Wilderness.</span><br>
+                <span class="hero-emphasis">And Build A Thriving Community.</span>
+            </h1>
+
+            <p>
+                From Scratch is a next-gen colony simulation that focuses on the stories within. Immerse yourself in interactive storytelling in a world populated with cutting-edge AI-driven characters.
+            </p>
+
+            <ul class="hero-bullets">
+                <li>Intricate Intrigues &amp; Factions</li>
+                <li>Advanced AI-Powered NPCs</li>
+                <li>Procedural Items &amp; Worlds</li>
+                <li>The Most Advanced Character System</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="about-section home-story-section">
+    <div class="about-header">
+        <p class="eyebrow">About</p>
+        <h2>Something Has Taken You...</h2>
+    </div>
+
+    <div class="story-row left" style="--story-bg: url('gfx/story-1.png');">
+        <div class="story-content">
+            <h2>
+                Your life was ordinary. Predictable in the way most lives are. Days slipped by in quiet repetition &#x2014; familiar places, familiar faces, a routine you never questioned.
+            </h2>
+        </div>
+    </div>
+
+    <div class="story-row right" style="--story-bg: url('gfx/story-2.png');">
+        <div class="story-content">
+            <h2>
+                That night felt no different at first. You went to bed as you always did &#x2014; but your dreams were unusually vivid, stretching on with a clarity that felt almost real.
+            </h2>
+        </div>
+    </div>
+
+    <div class="story-row left" style="--story-bg: url('gfx/story-3.png');">
+        <div class="story-content">
+            <h2>
+                And then you woke up. Not in your bed, not in your home &#x2014; but in the middle of an endless wilderness, surrounded by unfamiliar sounds and a sky that did not feel like yours.
+            </h2>
+        </div>
+    </div>
+
+    <div class="story-row right" style="--story-bg: url('gfx/story-4.png');">
+        <div class="story-content">
+            <h2>
+                You called out, hoping for an answer &#x2014; any answer. But only the wind replied. Only the distant echo of something alive, somewhere. You gathered what you could to cover yourself, using whatever the land would give.
+            </h2>
+        </div>
+    </div>
+
+    <div class="story-row left" style="--story-bg: url('gfx/story-5.png');">
+        <div class="story-content">
+            <h2>
+                Then you noticed movement. Someone was there, hidden just beyond the brush, watching you. They spoke &#x2014; words you couldn&#x2019;t understand &#x2014; and disappeared before you could react.
+            </h2>
+        </div>
+    </div>
+
+    <div class="story-row right" style="--story-bg: url('gfx/story-6.png');">
+        <div class="story-content">
+            <h2>
+                Not long after, you found another. This one approached carefully, speaking your language, offering something close to trust. Whether it was genuine&#x2026; or something else entirely, you couldn&#x2019;t yet tell.
+            </h2>
+        </div>
+    </div>
+
+    <div class="story-row left" style="--story-bg: url('gfx/story-7.png');">
+        <div class="story-content">
+            <h2>
+                <br /><br /><br /><br /><br /><br /><br />
+                You begin to understand the truth. You are not alone here &#x2014; not even close. And survival will depend not just on what surrounds you, but on the people standing right beside you.
+            </h2>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-game-section about-showcase">
+    <div class="about-noise"></div>
+    <div class="about-glow about-glow-one"></div>
+    <div class="about-glow about-glow-two"></div>
+
+    <div class="container about-showcase-inner">
+        <div class="about-showcase-hero">
+            <div class="about-showcase-copy" data-about-reveal>
+                <p class="eyebrow about-showcase-eyebrow">About the game</p>
+
+                <h2>
+                    What is From Scratch?
+                </h2>
+
+                <p class="about-showcase-description">
+                    From Scratch is a multiplayer third-person action survival colony sim about people who wake up in an unfamiliar wilderness with no equipment, no society, and no safety. You build a colony from nothing, recruit survivors, shape relationships, and try to hold a living community together while hunger, fear, ideology, conflict, and ambition pull it apart.
+                </p>
+
+                <div class="about-pillars">
+                    <div class="about-pillar">
+                        <span>Colony</span>
+                        <strong>Build a society from nothing</strong>
+                    </div>
+
+                    <div class="about-pillar">
+                        <span>AI</span>
+                        <strong>AI-driven colonists</strong>
+                    </div>
+
+                    <div class="about-pillar">
+                        <span>World</span>
+                        <strong>Procedural worlds</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-showcase-visual" data-about-reveal>
+                <div class="about-image-stack">
+                    <div class="about-image-main">
+                        <img src="gfx/story-3.png?v=G91W1YwGwdGQiTKW3jfVbkiYyx1XQJ640tItPpoOo9U" alt="" />
+                    </div>
+
+                    <div class="about-floating-card about-floating-card-top">
+                        <span>Characters</span>
+                        <strong>Extremely detailed people</strong>
+                    </div>
+
+                    <div class="about-floating-card about-floating-card-bottom">
+                        <span>Society</span>
+                        <strong>Intrigue, factions, and internal conflict</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-feature-showcase">
+            <article class="about-feature-card about-feature-card-large" data-about-reveal>
+                <div class="about-feature-icon">I</div>
+                <div>
+                    <p>Colony</p>
+                    <h3>Build a society from nothing</h3>
+                    <span>Gather resources, build shelter, assign work, and create a functioning colony in a wilderness where every person has needs, beliefs, and goals of their own.</span>
+                </div>
+            </article>
+
+            <article class="about-feature-card" data-about-reveal>
+                <div class="about-feature-icon">II</div>
+                <div>
+                    <p>AI</p>
+                    <h3>AI-driven colonists</h3>
+                    <span>Colonists have personalities, relationships, memories, and motives. They react to the world, to each other, and to you &#x2014; not just to simple scripts.</span>
+                </div>
+            </article>
+
+            <article class="about-feature-card" data-about-reveal>
+                <div class="about-feature-icon">III</div>
+                <div>
+                    <p>World</p>
+                    <h3>Procedural worlds</h3>
+                    <span>Terrain, resources, places, and populations are generated systemically, giving every world its own geography, opportunities, and problems.</span>
+                </div>
+            </article>
+
+            <article class="about-feature-card" data-about-reveal>
+                <div class="about-feature-icon">IV</div>
+                <div>
+                    <p>Crafting</p>
+                    <h3>Materials matter</h3>
+                    <span>Items are shaped by the materials they are made from. Wood, stone, metal, bone, hide, and fibers affect weight, durability, damage, comfort, and quality.</span>
+                </div>
+            </article>
+
+            <article class="about-feature-card" data-about-reveal>
+                <div class="about-feature-icon">V</div>
+                <div>
+                    <p>Society</p>
+                    <h3>Intrigue, factions, and internal conflict</h3>
+                    <span>The greatest threat is not always outside the walls. Colonists can form alliances, rivalries, ideological groups, and hidden agendas.</span>
+                </div>
+            </article>
+
+            <article class="about-feature-card" data-about-reveal>
+                <div class="about-feature-icon">VI</div>
+                <div>
+                    <p>Characters</p>
+                    <h3>Extremely detailed people</h3>
+                    <span>Every character is generated with background, culture, traits, abilities, relationships, and physical details that make them more than just labor.</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="news" class="news-section">
+    <div class="container">
+        <div class="news-header">
+            <p class="eyebrow">Latest News</p>
+            <h2>Development Updates</h2>
+        </div>
+
+        <div class="news-grid">
+
+        </div>
+
+        <div class="news-more">
+            <button id="loadMoreNews" class="btn" type="button">Load More News</button>
+        </div>
+    </div>
+</section>
+
+<dialog id="newsModal" class="news-modal">
+    <button class="news-modal-close"
+            id="closeNewsModal"
+            type="button"
+            aria-label="Close">
+        Ã—
+    </button>
+
+    <button class="news-modal-nav news-modal-prev"
+            id="newsPrev"
+            type="button"
+            aria-label="Previous article">
+        &lt;
+    </button>
+
+    <button class="news-modal-nav news-modal-next"
+            id="newsNext"
+            type="button"
+            aria-label="Next article">
+        &gt;
+    </button>
+
+    <div class="news-modal-card">
+        <img id="newsModalImage" src="" alt="" />
+
+        <div class="news-modal-content">
+            <time id="newsModalDate"></time>
+            <h2 id="newsModalTitle"></h2>
+            <p id="newsModalBody"></p>
+        </div>
+    </div>
+</dialog>
+
+
+<section id="systems" class="systems-section">
+    <div class="systems-bg"></div>
+
+    <div class="container systems-content">
+        <div class="systems-header">
+            <p class="eyebrow">Core Systems</p>
+            <h2>Built For Emergent Stories</h2>
+            <p>
+                From Scratch is not built around scripted quests. It is built around systems that collide, react, and create stories you did not plan.
+            </p>
+        </div>
+
+        <div class="systems-card-grid">
+                <article class="system-card"
+                         role="button"
+                         tabindex="0"
+                         data-system-id="2"
+                         data-system-title="Advanced Character System"
+                         data-system-image="/gfx/system-characters.png"
+                         data-system-tags="AI, NPCs, Personality, Traits, Mood, Relationships, Procedural Characters">
+                    <img src="gfx/system-characters.png" alt="" />
+
+                    <div>
+                        <p class="system-card-kicker">Core System</p>
+                        <h3>Advanced Character System</h3>
+                        <p>A layered AI persona system where ethnicity, traits, OCEAN personality, mood, and four-dimensional relationships combine into believable colonists with memory, bias, ambition, loya...</p>
+                    </div>
+                </article>
+                <template id="systemTemplate-2">
+<p class="tech-article-lead">
+    Most colony sims generate characters as stat blocks. From Scratch treats them as people:
+    culturally grounded, psychologically variable, socially entangled, and emotionally reactive.
+    The result is a character generation pipeline designed not merely to create NPCs, but to create
+    believable AI personas with memory, bias, ambition, loyalty, rivalry, fear, and desire.
+</p>
+
+<div class="tech-article-grid">
+    <div>
+        <p>
+            The first step is ethnicity. From Scratch uses a weighted list of real-world ethnicities
+            containing more than 100,000 individuals, resulting in more than 600 unique ethnic backgrounds.
+        </p>
+
+        <p>
+            Ethnicity is then used to derive a wider social and biological context:
+            phenotypical features, gender, wealth class, last name, nationality, and religion. Wealth influences
+            profession. Gender and ethnicity influence first-name selection. This combined identity profile
+            then feeds into the trait system.
+        </p>
+    </div>
+</div>
+
+<div class="full-width-infographic">
+    <img src="gfx/system-characters-1.png"
+         alt="Character generation pipeline"
+         class="pipeline-image" />
+</div>
+
+<aside class="infographic-panel" aria-label="Procedurally generated From Scratch characters">
+    <video class="system-video" autoplay muted loop playsinline preload="metadata">
+        <source src="gfx/system-characters-1.mkv" type="video/x-matroska">
+        Your browser does not support this video format.
+    </video>
+</aside>
+
+<p>
+    The first trait pass draws from roughly 800 unique traits, based on age, civilization, profession, and gender.
+    These traits can be physical, temperamental, professional, cultural, behavioral, relational, or skill-based.
+    Initial traits are then spread into related traits and combined with other traits to form new ones, while
+    contradictory traits are removed.
+</p>
+
+<p>
+    A personality profile based on the OCEAN system is generated and nudged by certain traits. This personality
+    profile is then used to add additional temperamental traits to the character, giving each persona a more
+    distinct behavioral pattern.
+</p>
+
+<div class="process-map">
+    <h3>Trait Resolution Pass</h3>
+
+    <div class="process-steps">
+        <div class="process-step">
+            <strong>1. Seed</strong>
+            <span>Ethnicity, OCEAN, gender, wealth, profession, religion, and nationality create the first identity layer.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>2. Expand</strong>
+            <span>Initial traits branch into related physical, mental, social, and skill-based traits.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>3. Prune</strong>
+            <span>Conflicting traits are removed, suppressed, or resolved through priority rules.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>4. Finalize</strong>
+            <span>The final personality profile generates perks, goals, ambitions, and behavioral tendencies.</span>
+        </div>
+    </div>
+</div>
+
+<h3>Implementation Sketch</h3>
+
+<p>
+    At code level, character generation is handled as a layered pipeline. Each stage adds a new part of the
+    person: biological background, culture, names, wealth, profession, traits, personality, mood, ambitions,
+    relationships, and finally the static persona used by the AI systems.
+</p>
+
+<pre><code class="language-csharp">
+public static class CharacterGenerationPipeline
+{
+    public static IHuman Generate(string seedStr)
+    {
+        var seed = SeedService.Create(seedStr);
+
+        // The weighted ethnicity roll is the root of the generated identity.
+        var ethnicity = EthnicityService.RollWeightedEthnicity(seed);
+
+        // Core identity is derived from ethnicity, civilization, gender, age, and social context.
+        var gender = GenderService.RollGender(ethnicity, seed);
+        var age = AgeService.RollAge(seed);
+        var wealth = WealthService.RollWealthClass(ethnicity, seed);
+        var nationality = NationalityService.RollNationality(ethnicity, seed);
+        var religion = ReligionService.RollReligion(ethnicity, seed);
+        var civilization = CivilizationService.GetCivilization(ethnicity);
+
+        // Names are culturally grounded instead of being selected from one generic fantasy list.
+        var firstName = NameService.RollFirstName(ethnicity, gender, seed);
+        var lastName = NameService.RollLastName(ethnicity, seed);
+
+        // Phenotype creates the visible body: skin, hair, face, height, build, and other inherited features.
+        var phenotype = PhenotypeService.Generate()
+            .WithEthnicity(ethnicity)
+            .WithGender(gender)
+            .WithAge(age)
+            .Build(seed);
+
+        // Wealth and civilization influence what kind of life the person had before arriving.
+        var profession = ProfessionService.RollProfession()
+            .WithGender(gender)
+            .WithWealth(wealth)
+            .WithEthnicity(ethnicity)
+            .WithCivilization(civilization)
+            .Build(seed);
+
+        // The first trait pass draws from demographic, cultural, physical, and professional conditions.
+        var seedTraits = TraitService.CreateInitial()
+            .WithAge(age)
+            .WithGender(gender)
+            .WithEthnicity(ethnicity)
+            .WithWealth(wealth)
+            .WithNationality(nationality)
+            .WithReligion(religion)
+            .WithProfession(profession)
+            .WithCivilization(request.Civilization)
+            .Roll(seed);
+
+        // Related traits branch outward from the first pass.
+        var expandedTraits = TraitService.CreateExpansion()
+            .WithSeedTraits(seedTraits)
+            .WithProfession(profession)
+            .Expand(seed);
+
+        // Some traits combine into new traits
+        var combinedTraits = TraitService.Combine(expandedTraits, seed);
+
+        // OCEAN starts as a psychological baseline and is then nudged by concrete life traits.
+        var ocean = OceanPersonalityService.GenerateBaseline(seed);
+        ocean = OceanPersonalityService.ApplyTraitInfluence(ocean, resolvedTraits);
+
+        // The adjusted personality profile creates additional behavioral and temperamental traits.
+        var temperamentTraits = TraitService.GenerateFromOcean(ocean, seed);
+        var finalTraits = TraitService.ResolveContradictions(resolvedTraits.AddRange(temperamentTraits));
+
+        // Skills are inferred from traits.
+        var skills = SkillGenerationService.Generate()
+            .WithTraits(finalTraits)
+            .Build(seed);
+
+        // Motivations make the character want something before the simulation even begins.
+        var motivations = MotivationsService.Generate()
+            .WithTraits(finalTraits)
+            .WithProfession(profession)
+            .WithReligion(religion)
+            .WithWealth(wealth)
+            .WithOcean(ocean)
+            .Build(seed);
+
+        // The generated identity is assembled into a single human data object.
+        var human = HumanFactory.Create()
+            .WithName(firstName, lastName)
+            .WithGender(gender)
+            .WithAge(age)
+            .WithEthnicity(ethnicity)
+            .WithNationality(nationality)
+            .WithReligion(religion)
+            .WithWealth(wealth)
+            .WithProfession(profession)
+            .WithPhenotype(phenotype)
+            .WithTraits(finalTraits)
+            .WithOcean(ocean)
+            .WithSkills(skills)
+            .WithMotivations(motivations)
+            .Build();
+
+
+        // The static persona is what the AI dialogue and behavior systems later inject into prompts.
+        var persona = PersonaService.BuildStaticPersona()
+            .WithHuman(human)
+            .WithIdentity()
+            .WithCulture()
+            .WithPersonality()
+            .WithSpeechStyle()
+            .WithAmbitions()
+            .WithBiases()
+            .WithFears()
+            .Build();
+
+        PersonaService.Assign(human, persona);
+
+        CharacterGenerationEventService.RaiseCharacterGenerated(human);
+
+        return human;
+    }
+}
+</code></pre>
+
+<h3>Relationships Are Four-Dimensional</h3>
+
+<p>
+    From Scratch does not treat relationships as a single friendship number. Every NPC maintains a four-axis
+    ABCD perception score of every other NPC. These values determine how people interpret each other, who they
+    trust, who they follow, who they resent, and who they try to influence.
+</p>
+
+<div class="abcd-grid">
+    <div class="abcd-card">
+        <strong>Alignment</strong>
+        <span>How much two people want the same things.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Bonding</strong>
+        <span>How emotionally close or attached they are.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Competence</strong>
+        <span>How useful, capable, or reliable one sees the other as being.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Dominance</strong>
+        <span>Who holds social power in the relationship.</span>
+    </div>
+</div>
+
+<p>
+    This allows for relationships that are much more nuanced than â€œfriendâ€ or â€œenemy.â€ A colonist can respect
+    someoneâ€™s competence while disliking them. They can feel bonded to a person whose ambitions are dangerous.
+    They can follow a leader they do not love, or betray a friend whose goals threaten the colony.
+</p>
+
+<h3>Mood Changes the Meaning of Personality</h3>
+
+<p>
+    Behavior is also filtered through the NPCâ€™s current mood. From Scratch uses a dual-axis mood score:
+    valence and arousal. Valence measures whether the emotional state is positive or negative. Arousal measures
+    whether it is calm or intense. This state is then projected onto a Plutchikian wheel of emotions, allowing
+    the same personality to behave differently depending on fear, anger, joy, sadness, anticipation, disgust,
+    surprise, or trust.
+</p>
+
+<p>
+    The result is that a colonist is not simply â€œaggressiveâ€ or â€œkind.â€ They may be generous when calm,
+    defensive when afraid, reckless when excited, or cruel when humiliated. Social dynamics emerge from the
+    combination of personality, mood, relationship perception, and situational pressure.
+</p>
+
+<div class="infographic-panel" aria-label="Mood and relationship infographic">
+    <svg viewBox="0 0 1000 360" role="img" aria-labelledby="moodRelationshipTitle">
+        <title id="moodRelationshipTitle">Mood and relationship behavior model</title>
+
+        <defs>
+            <marker id="arrow2" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#d9b66c" />
+            </marker>
+        </defs>
+
+        <rect x="8" y="8" width="984" height="344" rx="10" fill="#080706" stroke="#ba8540" opacity="0.95" />
+
+        <g font-family="Cinzel, serif" fill="#e0b160" font-size="25">
+            <text x="500" y="48" text-anchor="middle">Behavior Is The Result Of Multiple Live Systems</text>
+        </g>
+
+        <g font-family="Inter, sans-serif" font-size="18">
+            <rect x="55" y="105" width="190" height="95" rx="8" fill="#17120d" stroke="#ba8540" />
+            <text x="150" y="142" text-anchor="middle" fill="#f0d79a">Personality</text>
+            <text x="150" y="170" text-anchor="middle" fill="#c6b594" font-size="14">OCEAN + traits</text>
+
+            <rect x="295" y="105" width="190" height="95" rx="8" fill="#17120d" stroke="#ba8540" />
+            <text x="390" y="142" text-anchor="middle" fill="#f0d79a">Mood</text>
+            <text x="390" y="170" text-anchor="middle" fill="#c6b594" font-size="14">valence + arousal</text>
+
+            <rect x="535" y="105" width="190" height="95" rx="8" fill="#17120d" stroke="#ba8540" />
+            <text x="630" y="142" text-anchor="middle" fill="#f0d79a">Relationship</text>
+            <text x="630" y="170" text-anchor="middle" fill="#c6b594" font-size="14">ABCD perception</text>
+
+            <rect x="775" y="105" width="170" height="95" rx="8" fill="#17120d" stroke="#ba8540" />
+            <text x="860" y="142" text-anchor="middle" fill="#f0d79a">Context</text>
+            <text x="860" y="170" text-anchor="middle" fill="#c6b594" font-size="14">events + pressure</text>
+
+            <line x1="245" y1="152" x2="295" y2="152" stroke="#d9b66c" stroke-width="3" marker-end="url(#arrow2)" />
+            <line x1="485" y1="152" x2="535" y2="152" stroke="#d9b66c" stroke-width="3" marker-end="url(#arrow2)" />
+            <line x1="725" y1="152" x2="775" y2="152" stroke="#d9b66c" stroke-width="3" marker-end="url(#arrow2)" />
+
+            <rect x="210" y="250" width="580" height="70" rx="8" fill="#21170d" stroke="#e0b160" />
+            <text x="500" y="292" text-anchor="middle" fill="#f0d79a" font-size="21">
+                Dynamic Friendship Â· Faction Â· Rivalry Â· Betrayal
+            </text>
+
+            <line x1="500" y1="200" x2="500" y2="250" stroke="#d9b66c" stroke-width="3" marker-end="url(#arrow2)" />
+        </g>
+    </svg>
+</div>
+
+<h3>Why This Matters</h3>
+
+<p>
+    Because every persona is generated from layered identity, evolving traits, a final personality profile,
+    emotional state, and four-axis social perception, the colony can produce relationships that make sense.
+    Friendships form because people share goals and bond over events. Factions emerge because aligned people
+    find each other. Rivalries develop because competence, dominance, ambition, and emotion collide.
+</p>
+
+<p>
+    This is why I believe From Scratch is building one of the most complex AI persona systems in games:
+    characters are not assembled from isolated stats, but from overlapping identity, personality, mood, and
+    social systems that continuously shape how they behave, who they trust, and what they become.
+</p>                </template>
+                <article class="system-card"
+                         role="button"
+                         tabindex="0"
+                         data-system-id="3"
+                         data-system-title="Procedural Crafting &amp; Metallurgy"
+                         data-system-image="/gfx/system-crafting.png"
+                         data-system-tags="Crafting, Materials, Cooking, Metallurgy, Simulation">
+                    <img src="gfx/system-crafting.png" alt="" />
+
+                    <div>
+                        <p class="system-card-kicker">Core System</p>
+                        <h3>Procedural Crafting &amp; Metallurgy</h3>
+                        <p>A deep dive into how From Scratch simulates materials, crafting, cooking, and procedural metallurgy.</p>
+                    </div>
+                </article>
+                <template id="systemTemplate-3">
+<p class="tech-article-lead">
+    From Scratch does not treat items as fixed database entries. Raw resources, materials, food,
+    equipment, tools, weapons, armor, meals, and crafted objects are all built from the same underlying idea:
+    blueprints define structure, materials provide parameters, and item instances emerge from the combination.
+</p>
+
+<div class="tech-article-meta">
+    <span class="tech-pill">Procedural Materials</span>
+    <span class="tech-pill">Blueprint Crafting</span>
+    <span class="tech-pill">Material Parameters</span>
+    <span class="tech-pill">Dynamic Equipment</span>
+    <span class="tech-pill">Procedural Cooking</span>
+    <span class="tech-pill">Serialization</span>
+</div>
+
+<div class="tech-article-grid">
+    <div>
+        <p>
+            Most games define items as static objects: a sword has fixed damage, a meal has fixed nutrition,
+            and a material is usually just an ingredient tag. From Scratch uses a more systemic approach.
+            An item blueprint describes what something can become, while the chosen materials determine
+            what that specific item actually is.
+        </p>
+
+        <p>
+            A weapon, tool, armor piece, building material, food item, or cooked meal can all carry generated
+            values. Weight, durability, damage, attack speed, taste, calories, nutrition, shelf life, appearance,
+            and other properties can be calculated from the ingredients or materials used to create the item.
+        </p>
+
+        <p>
+            This means that two objects with the same blueprint can still become mechanically different.
+            A spear made from soft wood and bone is not the same as a spear made from hardwood and obsidian.
+            A meal made from fish, berries, and herbs is not the same as a meal made from meat, fat, and mushrooms.
+        </p>
+
+        <div class="tech-note">
+            The goal is not to create a static recipe list. The goal is to create a simulation where materials,
+            ingredients, skill, durability, and construction choices matter.
+        </div>
+    </div>
+
+    <aside class="infographic-panel">
+        <video autoplay muted loop playsinline controls>
+            <source src="gfx/system-crafting-1.mkv" type="video/x-matroska">
+            Your browser does not support video playback.
+        </video>
+    </aside>
+</div>
+
+<div class="full-width-infographic">
+    <img src="gfx/system-items-1.png"
+         alt="Item generation pipeline"
+         class="pipeline-image" />
+</div>
+
+<h3>One Architecture For Many Item Types</h3>
+
+<p>
+    The system is built around a clear separation between blueprints and item instances.
+    A blueprint stores stable design data: name, description, icon, mesh, stackability,
+    material slots, base properties, equipment rules, food values, or skill requirements.
+</p>
+
+<p>
+    The item instance stores the generated state of one actual object: amount, durability,
+    selected materials, generated properties, freshness, reservations, tooltip data, and serialized save data.
+    This allows simple resources, equipment, food, and meals to share the same architectural foundation.
+</p>
+
+<div class="process-map">
+    <h3>Item Resolution Pipeline</h3>
+
+    <div class="process-steps">
+
+        <div class="process-step">
+            <strong>1. Blueprint</strong>
+            <span>The system selects the item definition: material, food, weapon, armor, tool, meal, or another item type.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>2. Requirements</strong>
+            <span>The blueprint defines material slots, food ingredients, equipment rules, skill requirements, or stack behavior.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>3. Inputs</strong>
+            <span>Concrete materials or ingredients are inserted into the blueprint.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>4. Parameters</strong>
+            <span>Physical, nutritional, taste, durability, and utility properties are read from the inputs.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>5. Instance</strong>
+            <span>A real item is created with generated name, values, freshness, durability, materials, and tooltip data.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>6. Simulation</strong>
+            <span>The item can be equipped, consumed, stored, split, merged, reserved, serialized, damaged, or used.</span>
+        </div>
+
+    </div>
+</div>
+
+<h3>Implementation Sketch</h3>
+
+<p>
+    At code level, the item system can be understood as one streamlined pipeline.
+    The same flow can create raw materials, crafted equipment, weapons, food, and procedural meals.
+    The blueprint defines the structure, while materials and ingredients provide the data used to generate
+    the final object.
+</p>
+
+<pre><code class="language-csharp">public static class ItemSystemPipeline
+{
+    public static IItem Create(ItemCreationRequest request)
+    {
+        // The blueprint defines the structure of the item.
+        var blueprint = ItemBlueprintService.Get(request.BlueprintName);
+
+        // Simple stackable objects, such as raw resources or basic food, can be created directly.
+        if(blueprint is IMaterialItemBlueprint materialBlueprint)
+        {
+            return materialBlueprint.MakeItem(request.Amount);
+        }
+
+        if(blueprint is IFoodItemBlueprint foodBlueprint && request.Ingredients.Count == 0)
+        {
+            var food = foodBlueprint.MakeItem(request.Amount);
+            FoodSpoilageService.InitializeExpireTimes(food, foodBlueprint.ShelfLife);
+            return food;
+        }
+
+        // Meals are generated from food ingredients rather than fixed recipes.
+        if(request.ItemType == EGeneratedItemType.Meal)
+        {
+            var mealBlueprint = MealBuilder.CreateBlueprint()
+                .WithMealType(request.MealType)
+                .WithIngredient(request.Ingredients.ElementAtOrDefault(0))
+                .WithIngredient(request.Ingredients.ElementAtOrDefault(1))
+                .WithIngredient(request.Ingredients.ElementAtOrDefault(2))
+                .Build();
+
+            var meal = mealBlueprint.MakeItem();
+
+            FoodSpoilageService.InitializeExpireTimes(meal, mealBlueprint.ShelfLife);
+            TooltipService.BuildModules(meal);
+            ItemEventService.RaiseItemCreated(meal);
+
+            return meal;
+        }
+
+        // Craftable and equiptable objects require concrete material choices.
+        var craftableBlueprint = blueprint as ICraftableItemBlueprint;
+
+        if(craftableBlueprint == null)
+            return blueprint.MakeItem();
+
+        // The blueprint defines which material categories are required.
+        var materialPlan = MaterialSelectionService.ResolveMaterials()
+            .WithRequiredMaterialSlots(craftableBlueprint.MaterialList)
+            .WithAvailableMaterials(request.AvailableMaterials)
+            .WithCraftingQuality(request.CraftingQuality)
+            .Build();
+
+        var materialBlueprints = materialPlan
+            .Select(x => x.Entry)
+            .ToList();
+
+        // The item name is generated from the blueprint template and the selected materials.
+        var instanceName = craftableBlueprint.GetInstanceName(materialBlueprints);
+
+        // Base properties come from the blueprint.
+        var baseProperties = craftableBlueprint.GetBaseProperties();
+
+        // Material parameters come from the inserted material blueprints.
+        var materialParameters = MaterialParameterService.Read(materialBlueprints);
+
+        // Final properties are calculated from blueprint values, material properties, quality, and features.
+        var generatedProperties = ItemPropertyService.Calculate()
+            .WithBaseProperties(baseProperties)
+            .WithMaterialParameters(materialParameters)
+            .WithCraftingQuality(request.CraftingQuality)
+            .WithFeatures(request.Features)
+            .Build();
+
+        // The concrete item instance is created.
+        var item = craftableBlueprint.MakeItem(materialPlan);
+
+        ItemInstanceService.ApplyGeneratedData()
+            .To(item)
+            .WithName(instanceName)
+            .WithMaterials(materialPlan)
+            .WithProperties(generatedProperties)
+            .WithDurability(request.StartingDurability)
+            .Apply();
+
+        // Equiptable items connect crafted objects to character skill, equipment slots, and use rules.
+        if(item is IEquiptableItem equiptableItem)
+        {
+            EquiptableItemService.Configure()
+                .WithEquipmentSlot(equiptableItem.EquipmentSlot)
+                .WithSkillRequirements(equiptableItem.SkillRequirements)
+                .WithDurability(request.StartingDurability)
+                .Apply(equiptableItem);
+        }
+
+        // Weapons expose generated combat values.
+        if(item is IWeapon weapon)
+        {
+            WeaponItemService.Configure()
+                .WithAttackType(weapon.AttackType)
+                .WithPierceDamage(weapon.PierceDamage)
+                .WithCutDamage(weapon.CutDamage)
+                .WithBluntDamage(weapon.BluntDamage)
+                .WithAttackSpeed(weapon.AttackSpeed)
+                .WithAttackRange(weapon.AttackRange)
+                .WithStaminaCost(weapon.StaminaCost)
+                .Apply(weapon);
+        }
+
+        TooltipService.BuildModules(item);
+        ItemEventService.RaiseItemCreated(item);
+
+        return item;
+    }
+}</code></pre>
+
+<h3>Blueprints Define Structure</h3>
+
+<p>
+    A blueprint is the stable definition of an item type. It defines the rules for what the item can be,
+    but not necessarily the final values of one specific instance. A weapon blueprint may define material slots,
+    attack animation, equipment slot, and property formulas. A food blueprint may define calories, taste,
+    nutrition, shelf life, and consumption effects.
+</p>
+
+<div class="abcd-grid">
+
+    <div class="abcd-card">
+        <strong>Base Blueprint</strong>
+        <span>Defines shared item data such as name, description, weight, icon, mesh, and object creation.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Material Blueprint</strong>
+        <span>Defines material type, short name, texture, color, stackability, and physical property values.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Food Blueprint</strong>
+        <span>Defines taste, calories, nutrition, shelf life, food category, and consumption effects.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Equiptable Blueprint</strong>
+        <span>Defines equipment slot, skill requirements, base properties, material requirements, and use rules.</span>
+    </div>
+
+</div>
+
+<h3>Materials Are Parameter Sources</h3>
+
+<p>
+    Materials are not just crafting ingredients. They are parameter containers.
+    Wood may differ in hardness, density, flexibility, insulation, flammability, or durability.
+    Stone may vary in brittleness, heat resistance, weight, or structural strength.
+    Metals may differ in toughness, elasticity, sharpness retention, melting point, and corrosion resistance.
+</p>
+
+<p>
+    These values are used by blueprints to calculate the final utility of crafted objects.
+    A heavy material can increase weight and impact. A hard material can improve cutting or piercing.
+    A beautiful material can improve aesthetics. A fragile material can reduce durability.
+    A material that is difficult to work with can require greater skill or produce worse results when crafted poorly.
+</p>
+
+<div class="process-map">
+    <h3>Material Influence</h3>
+
+    <div class="process-steps">
+
+        <div class="process-step">
+            <strong>Mass</strong>
+            <span>Influences item weight, stamina cost, blunt force, and handling.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Hardness</strong>
+            <span>Influences cutting, piercing, durability, and edge quality.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Durability</strong>
+            <span>Influences how long the item lasts before breaking or degrading.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Aesthetics</strong>
+            <span>Influences beauty, value, prestige, and social perception.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Craftability</strong>
+            <span>Influences how difficult the material is to shape into a useful object.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Specialization</strong>
+            <span>Different material types matter for different item categories and construction slots.</span>
+        </div>
+
+    </div>
+</div>
+
+<h3>Crafting Is Blueprint Driven</h3>
+
+<p>
+    Crafted objects are built from blueprints. A blueprint defines which material categories are needed
+    and how the physical properties of those materials influence the final item.
+</p>
+
+<p>
+    A spear blueprint may prioritize shaft flexibility, total weight, impact force, and tip hardness.
+    A bow blueprint may heavily value elasticity and tensile strength. Armor may depend on density,
+    hardness, insulation, and toughness. A tool may care more about durability, craftability,
+    edge retention, and handling.
+</p>
+
+<p>
+    Many crafted objects can also expose adjustable parameters during construction. Length, width,
+    thickness, balance, head size, edge geometry, and weight distribution can all change how the final
+    item performs.
+</p>
+
+<div class="process-map">
+    <h3>Crafting Resolution</h3>
+
+    <div class="process-steps">
+
+        <div class="process-step">
+            <strong>1. Select Blueprint</strong>
+            <span>The player or system chooses what kind of object is being made.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>2. Fill Material Slots</strong>
+            <span>The required material categories are filled with concrete materials.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>3. Read Properties</strong>
+            <span>The chosen materials contribute their procedural physical values.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>4. Apply Parameters</strong>
+            <span>Dimensions, quality, skill, features, and construction choices modify the result.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>5. Generate Object</strong>
+            <span>The final item receives name, durability, weight, properties, appearance, and tooltip data.</span>
+        </div>
+
+    </div>
+</div>
+
+<h3>Equiptable Items Connect Crafting To Characters</h3>
+
+<p>
+    Equiptable items add character-facing rules on top of crafting. They can define equipment slots,
+    skill requirements, durability, use sounds, attack animations, and whether a character is able to use them.
+</p>
+
+<p>
+    A generated weapon does not only contain a single damage number. It exposes multiple combat values:
+    stamina cost, attack speed, attack range, piercing damage, cutting damage, blunt damage,
+    animation type, weight, durability, and whether the weapon is one-handed or two-handed.
+</p>
+
+<div class="abcd-grid">
+
+    <div class="abcd-card">
+        <strong>Equipment Slot</strong>
+        <span>Determines whether the item belongs in the primary hand, armor slot, tool slot, or another equipment location.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Skill Requirements</strong>
+        <span>Prevents characters from using equipment they are not skilled enough to handle.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Generated Properties</strong>
+        <span>Turns material and blueprint data into actual gameplay values.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Durability</strong>
+        <span>Allows individual items to degrade, break, be repaired, or matter as unique objects.</span>
+    </div>
+
+</div>
+
+<h3>Food Is Built From Properties, Not Only Recipes</h3>
+
+<p>
+    Food follows the same philosophy as materials and equipment. Food items have properties such as
+    calories, nutrition, taste, shelf life, freshness, and consumption effects. These values are not just
+    display text; they directly influence survival, hunger, mood, traits, and how long food remains usable.
+</p>
+
+<p>
+    Every stack of food tracks its own expiration data. When food is split, merged, consumed, or stored,
+    freshness is preserved through the item instance rather than being treated as a simple global number.
+    This allows two stacks of the same food to have different remaining shelf life.
+</p>
+
+<aside class="infographic-panel">
+    <img src="gfx/system-crafting-2.png" alt="Procedural cooking system" />
+</aside>
+
+<h3>Meals Are Procedural Combinations</h3>
+
+<p>
+    Meals are generated from ingredients instead of being limited to fixed handcrafted recipes.
+    A meal blueprint can be created from one, two, or three food ingredients. The final meal receives
+    a generated name, description, icon, combined food properties, shelf life, taste profile, and nutrition values.
+</p>
+
+<p>
+    Ingredients contribute more than category labels. They can add calories, nutrition, taste,
+    preservation quality, and consumption effects. A dish may become nutritious but bland,
+    delicious but unhealthy, highly energizing but short-lived, or culturally desirable but difficult to preserve.
+</p>
+
+<div class="process-map">
+    <h3>Meal Generation</h3>
+
+    <div class="process-steps">
+
+        <div class="process-step">
+            <strong>1. Choose Meal Type</strong>
+            <span>The system selects whether the result is a stew, roast, mix, prepared dish, or another meal form.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>2. Add Ingredients</strong>
+            <span>One to three food blueprints are inserted into the meal builder.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>3. Combine Properties</strong>
+            <span>Calories, nutrition, taste, shelf life, and effects are combined into the final food profile.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>4. Generate Identity</strong>
+            <span>The meal receives a generated name, description, icon, and food category.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>5. Track Freshness</strong>
+            <span>The item instance receives expiration times so individual meals can spoil independently.</span>
+        </div>
+
+    </div>
+</div>
+
+<h3>Consumption Creates Consequences</h3>
+
+<p>
+    Food is not only inventory weight. When consumed, it can affect hunger, fluids, temporary traits,
+    rates of change, and character state. A meal can therefore become part of the broader survival and
+    personality simulation.
+</p>
+
+<div class="abcd-grid">
+
+    <div class="abcd-card">
+        <strong>Calories</strong>
+        <span>Restore hunger and determine how much practical energy the food provides.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Nutrition</strong>
+        <span>Represents the quality of the food beyond raw calories.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Taste</strong>
+        <span>Can influence preferences, mood, satisfaction, and cultural expectations.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Effects</strong>
+        <span>Food can modify fluids, apply temporary traits, or influence the character after consumption.</span>
+    </div>
+
+</div>
+
+<h3>Metallurgy Extends The Same System</h3>
+
+<p>
+    Metalworking uses the same item architecture. Metals can be refined, processed, and combined into alloys
+    with blended physical characteristics. Instead of unlocking predefined upgrades, metallurgy changes the
+    underlying material properties that later feed back into crafting.
+</p>
+
+<p>
+    One alloy may become extremely hard but brittle. Another may sacrifice edge retention for flexibility.
+    Others may optimize corrosion resistance, conductivity, low weight, or structural strength.
+    The resulting material then becomes a new input for weapons, tools, armor, construction, and trade.
+</p>
+
+<aside class="infographic-panel">
+    <video autoplay muted loop playsinline controls>
+        <source src="gfx/system-crafting-3.mkv" type="video/x-matroska">
+        Your browser does not support video playback.
+    </video>
+</aside>
+
+<h3>Tooltips And Serialization</h3>
+
+<p>
+    Because items are generated dynamically, the interface cannot rely only on manually written descriptions.
+    Tooltips are built from the actual item values. The player can inspect weight, freshness, taste,
+    calories, durability, damage, attack speed, material properties, and other generated statistics.
+</p>
+
+<p>
+    The same generated state can also be serialized. The system stores the item type, blueprint name,
+    amount, material list, generated template values, durability, expiration times, and properties.
+    This allows the game to save and recreate specific item instances rather than only recreating their blueprint.
+</p>
+
+<div class="tech-note">
+    Saving an item does not only mean saving â€œStone Axeâ€ or â€œCooked Meal.â€
+    It means saving this specific object, with these materials, these ingredients,
+    this durability, this freshness, and these generated properties.
+</div>
+
+<h3>Why This Matters</h3>
+
+<p>
+    This item system makes crafting, cooking, equipment, and material processing part of the same simulation.
+    Materials matter because they change the object. Ingredients matter because they change the meal.
+    Skills matter because not every character can craft or equip everything. Durability matters because
+    individual objects have condition and history. Freshness matters because food exists in time.
+</p>
+
+<p>
+    The result is an ecosystem where rare resources matter because their properties matter,
+    geography matters because different regions produce different materials and foods,
+    and knowledge matters because understanding material behavior becomes part of mastery.
+</p>
+
+<p>
+    From Scratch treats items as generated simulation objects rather than static progression rewards.
+    A crafted object carries the history of its materials, the choices made during construction,
+    the quality of the crafter, and the environment it came from.
+</p>
+
+<p class="article-footer-note">
+    In From Scratch, an item is not just something the player owns. It is a generated object shaped by
+    blueprint, material, ingredient, skill, durability, freshness, and use.
+</p>
+                </template>
+                <article class="system-card"
+                         role="button"
+                         tabindex="0"
+                         data-system-id="4"
+                         data-system-title="AI Conversation &amp; Memory Pipeline"
+                         data-system-image="/gfx/system-ai.png"
+                         data-system-tags="AI, NPC Dialogue, Speech To Text, RAG, Memory, Relationships, Semantic Embeddings, Action Agents">
+                    <img src="gfx/system-ai.png" alt="" />
+
+                    <div>
+                        <p class="system-card-kicker">Core System</p>
+                        <h3>AI Conversation &amp; Memory Pipeline</h3>
+                        <p>A speech-driven NPC communication system where player voice is converted into semantic intent, enriched with world context, answered in-character, and then used to update memory, m...</p>
+                    </div>
+                </article>
+                <template id="systemTemplate-4">
+<p class="tech-article-lead">
+    From Scratch allows players to speak directly with AI-driven NPCs. The system is not simply a chatbot layer placed on top of dialogue.
+    It is a complete communication pipeline where microphone input becomes transcribed text, names are corrected through
+    phonetic matching, messages are embedded, relevant memories and world information are retrieved, and the final prompt
+    is built around the NPCâ€™s personality, state, perception, and situation.
+</p>
+
+<div class="tech-article-meta">
+    <span class="tech-pill">Speech To Text</span>
+    <span class="tech-pill">Phonetic Matching</span>
+    <span class="tech-pill">Semantic Embeddings</span>
+    <span class="tech-pill">Multi-RAG Context</span>
+    <span class="tech-pill">ABCD Perception</span>
+    <span class="tech-pill">Agent Systems</span>
+</div>
+
+<div class="tech-article-grid">
+    <div>
+        <p>
+            The first stage is player voice input. The player speaks through a microphone, after which
+            the audio is transcribed into text. Before the text continues through the language pipeline,
+            the system attempts to solve one of the largest challenges of voice interfaces: names and references.
+        </p>
+
+        <p>
+            The transcription is searched phonetically for full names and important entities. If the player
+            pronounces a generated name incorrectly, or speech recognition misunderstands it, the system can still
+            identify the intended character through phonetic matching, fuzzy search, keywords, and semantic similarity.
+        </p>
+
+        <p>
+            After correction, the message is transformed into embeddings that allow semantic search across
+            memories, world knowledge, nearby individuals, and relevant context. The goal is not only to understand words,
+            but to understand meaning.
+        </p>
+
+        <div class="tech-note">
+            Dialogue is not simply a chatbot wrapper. It is a multi-stage simulation pipeline connecting speech,
+            memory, personality, perception, relationships, and behavior.
+        </div>
+    </div>
+</div>
+
+<div class="full-width-infographic">
+    <img src="gfx/system-ai-1.png"
+         alt="AI conversation pipeline"
+         class="pipeline-image" />
+</div>
+
+<h3>Conversation Pipeline</h3>
+
+<p>
+    The purpose of the pipeline is to gradually transform raw voice input into meaningful consequences inside
+    the simulation. Each stage adds additional information before the final response is generated.
+</p>
+
+<div class="process-map">
+    <h3>Dialogue Pipeline</h3>
+
+    <div class="process-steps">
+
+        <div class="process-step">
+            <strong>1. Microphone Input</strong>
+            <span>The player speaks naturally through voice input.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>2. Transcription</strong>
+            <span>Speech is converted into text and corrected through phonetic matching.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>3. Embeddings</strong>
+            <span>The message is converted into vector representations to capture semantic meaning.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>4. Context Retrieval</strong>
+            <span>Memories, world knowledge, nearby people, and social context are retrieved.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>5. Prompt Builder</strong>
+            <span>NPC state, personality, perception, and retrieved context are combined.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>6. LLM Call</strong>
+            <span>The structured prompt is sent to the language model.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>7. TTS Output</strong>
+            <span>The generated response is spoken back to the player.</span>
+        </div>
+
+    </div>
+</div>
+
+<h3>Implementation Sketch</h3>
+
+<p>
+    At code level, the system is organized as a readable pipeline. Each step delegates the actual work to
+    specialized services, while the pipeline itself controls the order of operations from speech capture to
+    post-conversation consequences.
+</p>
+
+<pre><code class="language-csharp">public static class AIConversationPipeline
+{
+    public static async Task Speak(IPlayer player, IHuman npc, EVocalLevel vocalLevel, ELanguage language, Vector3 location, Quaternion direction, CancellationToken cancellationToken)
+    {
+        // Capture and normalize the player's spoken input.
+        var audio = await MicrophoneService.Capture(vocalLevel, cancellationToken);
+        var rawText = await TranscriptionService.Transcript(audio, language, cancellationToken);
+        var correctedText = NameMatchingService.ReplacePhoneticNameMatches(rawText);
+
+        // The corrected text becomes the semantic key for memory, people, and world-state retrieval.
+        var embedding = await EmbeddingService.Embed(correctedText, cancellationToken);
+
+        var relevantPeople = PawnSearchService.SearchRelevantPeople(correctedText, embedding, location);
+
+        // RAG contains external context the NPC may need to answer meaningfully.
+        var ragContext = RagContextBuilder.Create()
+            .WithLongTermMemories(LongTermMemoryService.Search(npc, correctedText, embedding))
+            .WithWorldContext(WorldStateRagService.Search(correctedText, embedding, location))
+            .WithRelevantPeople(relevantPeople)
+            .Build();
+
+        // Prompt context combines the NPC's identity, current state, perception, and retrieved context.
+        var promptContext = PromptContextBuilder.Create()
+            .WithNpc(npc)
+            .WithPlayer(player)
+            .WithLanguage(language)
+            .WithPlayerMessage(correctedText)
+            .WithStaticPersona(PersonaService.GetPersona(npc))
+            .WithNpcState(PawnStateService.GetState(npc))
+            .WithPerception(PerceptionService.GetPerception(npc, player))
+            .WithShortTermMemory(ShortTermMemoryService.GetNewest(npc, 10))
+            .WithRagContext(ragContext)
+            .Build();
+
+        var prompt = PromptService.BuildNpcPrompt(promptContext);
+        var response = await LlmService.Send(prompt, cancellationToken);
+
+        var spokenText = ResponseParserService.GetSpokenText(response);
+
+        // TTS is optional; the conversation still exists as text if voice output is disabled.
+        await TtsService.SpeakIfEnabled(spokenText, language, npc, cancellationToken);
+
+        ConversationLogService.AddExchange(player, npc, correctedText, spokenText);
+
+        if(!ConversationService.HasConversationEnded(response))
+            return;
+
+        var conversation = ConversationLogService.GetConversation(player, npc);
+
+        // After the dialogue ends, agents convert the conversation into simulation consequences.
+        var memoryResult = await MemoryAgentService.Process(npc, player, conversation, cancellationToken);
+        var actionResult = await ActionAgentService.Process(npc, player, conversation, cancellationToken);
+        var perceptionResult = await PerceptionAgentService.Process(npc, player, conversation, cancellationToken);
+
+        MemoryService.Apply(npc, memoryResult);
+        PerceptionService.Apply(npc, player, perceptionResult);
+
+        // The action result becomes an executable in-game behavior.
+        var actionCommand = ActionCommandFactory.Create(npc, actionResult);
+        actionCommand.Execute();
+
+        ConversationEventService.RaiseConversationEnded(player, npc, conversation);
+
+        ConversationLogService.ClearConversation(player, npc);
+    }
+}</code></pre>
+
+<h3>Multi-Layer Context Retrieval</h3>
+
+<p>
+    NPCs do not answer only from the playerâ€™s message. Before the prompt is built, information is retrieved
+    from multiple independent context layers.
+</p>
+
+<div class="abcd-grid">
+
+    <div class="abcd-card">
+        <strong>Long-Term Memory</strong>
+        <span>Semantic vector search retrieves relevant memories, conflicts, promises, and previous experiences.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>World State</strong>
+        <span>Weather, colony status, nearby objects, threats, events, and dynamic systems are retrieved.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Other Characters</strong>
+        <span>NPCs are identified through names, traits, semantic similarity, fuzzy matching, and phonetics.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Short-Term Memory</strong>
+        <span>The newest actions and recent events are always directly injected into the prompt.</span>
+    </div>
+
+</div>
+
+<h3>Prompt Construction</h3>
+
+<p>
+    Once relevant context has been retrieved, a structured prompt is created. The objective is not to generate
+    generic dialogue, but to generate responses from a specific simulated individual.
+</p>
+
+<div class="process-map">
+    <h3>Prompt Composition</h3>
+
+    <div class="process-steps">
+
+        <div class="process-step">
+            <strong>NPC Instructions</strong>
+            <span>The model is instructed to behave as an NPC rather than an assistant.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Static Persona</strong>
+            <span>Culture, personality, values, background, and communication style.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Current State</strong>
+            <span>Needs, injuries, hunger, exhaustion, mood, stress, and physical condition.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Perception</strong>
+            <span>The NPCâ€™s perception of the player influences tone and behavior.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Retrieved Context</strong>
+            <span>Relevant memories, individuals, and world information.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Player Message</strong>
+            <span>The interpreted player message is injected last.</span>
+        </div>
+
+    </div>
+</div>
+
+<h3>Structured LLM Output</h3>
+
+<p>
+    The language model returns structured JSON rather than plain text. This makes it easier to connect dialogue
+    back into simulation systems.
+</p>
+
+<div class="tech-note">
+    Example structure:
+    Speaker â†’ Listener â†’ Language â†’ Internal Reasoning â†’ Spoken Dialogue
+</div>
+
+<p>
+    Only the spoken dialogue becomes visible to the player. The remaining information is used internally to
+    maintain context, participants, language, and underlying intent.
+</p>
+
+<h3>Post-Conversation Agent System</h3>
+
+<p>
+    Once dialogue ends, specialized agents evaluate which consequences the conversation should create.
+    This is where dialogue becomes memory, behavior, relationships, and emotional change.
+</p>
+
+<div class="abcd-grid">
+
+    <div class="abcd-card">
+        <strong>Memory Agent</strong>
+        <span>Summarizes important information and stores new memories for future retrieval.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Action Agent</strong>
+        <span>Determines behaviors such as helping, trading, fleeing, attacking, following, or refusing.</span>
+    </div>
+
+    <div class="abcd-card">
+        <strong>Perception Agent</strong>
+        <span>Updates the NPCâ€™s perception of the player and internal emotional state.</span>
+    </div>
+
+</div>
+
+<div class="tech-note">
+    Conversations do not stop when dialogue ends. They create consequences that influence future behavior.
+</div>
+
+<h3>ABCD Perception Model</h3>
+
+<p>
+    NPC perception is represented through six dimensions. The first four describe the relationship toward the player,
+    while the final two describe the NPCâ€™s internal emotional state.
+</p>
+
+<div class="process-map">
+    <h3>Six-Dimensional Perception System</h3>
+
+    <div class="process-steps">
+
+        <div class="process-step">
+            <strong>Alignment</strong>
+            <span>How closely the NPCâ€™s goals, values, and intentions align with the playerâ€™s.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Bonding</strong>
+            <span>Attachment, trust, familiarity, and social closeness.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Competence</strong>
+            <span>How capable, reliable, or skilled the NPC believes the player is.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Dominance</strong>
+            <span>Power dynamics, submission, confidence, fear, and social hierarchy.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Valence</strong>
+            <span>Whether the emotional state is positive or negative.</span>
+        </div>
+
+        <div class="process-step">
+            <strong>Arousal</strong>
+            <span>The emotional energy level: calm, tense, fearful, excited, or aggressive.</span>
+        </div>
+
+    </div>
+</div>
+
+<p>
+    The perception agent evaluates conversations using roughly forty different conversational vibes, such as
+    neutral, stubborn, naive, creative, pessimistic, arrogant, manipulative, or compassionate. These vibes
+    influence perception differently.
+</p>
+
+<p>
+    The updated perception state is compared against predefined relationship archetypes. These archetypes have
+    their own ABCD baselines and become human-readable descriptions injected into future prompts.
+</p>
+
+<div class="tech-note">
+    Example:
+    "_FIRSTNAME tolerates _OTHERPERSON. Although _FIRSTNAME is not particularly fond of _OTHERPERSON and remains
+    somewhat skeptical and cautious, _FIRSTNAME does not directly oppose _OTHERPERSON."
+</div>
+
+<h3>Why This Matters</h3>
+
+<p>
+    The goal is not simply to create NPCs that can talk. The goal is to integrate conversation directly into
+    the colony simulation itself.
+</p>
+
+<p>
+    Speech can change memories, trust, mood, social standing, perception, and future behavior.
+    An insult can become a memory. A threat can create fear. A promise can be remembered.
+    Praise can strengthen bonding. Commands can be accepted, questioned, refused, or transformed into actions.
+</p>
+
+<p>
+    Conversation therefore becomes a gameplay system rather than an isolated dialogue box.
+</p>
+
+<p class="article-footer-note">
+    In From Scratch, speech is not flavor text. It is simulation input that changes what characters remember,
+    how they feel, who they trust, and what they choose to do next.
+</p>                </template>
+        </div>
+    </div>
+</section>
+
+<dialog id="systemModal" class="system-modal">
+    <button class="system-modal-close"
+            id="closeSystemModal"
+            type="button"
+            aria-label="Close">
+        Ã—
+    </button>
+
+    <button class="system-modal-nav system-modal-prev"
+            id="systemPrev"
+            type="button"
+            aria-label="Previous system">
+        &lt;
+    </button>
+
+    <button class="system-modal-nav system-modal-next"
+            id="systemNext"
+            type="button"
+            aria-label="Next system">
+        &gt;
+    </button>
+
+    <div class="system-modal-card">
+        <img id="systemModalImage" src="" alt="" />
+
+        <div class="system-modal-content">
+            <p class="system-modal-kicker">Core System</p>
+            <h2 id="systemModalTitle"></h2>
+
+            <div id="systemModalBody" class="system-modal-dynamic-content"></div>
+
+            <div class="system-modal-tags" id="systemModalTags"></div>
+        </div>
+    </div>
+</dialog>
+
+<section id="media" class="media-section">
+    <div class="media-bg"></div>
+
+    <div class="container media-content">
+        <div class="media-header">
+            <p class="eyebrow">Media</p>
+            <h2>Glimpses From The Wilderness</h2>
+            <p>
+                Screenshots, atmosphere shots, system previews, and visual moments from the world of From Scratch.
+            </p>
+        </div>
+
+        <div class="media-filters" aria-label="Media filters">
+            <button class="media-filter active" type="button" data-media-filter="all">All</button>
+            <button class="media-filter" type="button" data-media-filter="concept-art">Concept Art</button>
+            <button class="media-filter" type="button" data-media-filter="screenshot">Screenshot</button>
+            <button class="media-filter" type="button" data-media-filter="video">Video</button>
+            <button class="media-filter" type="button" data-media-filter="audio">Audio</button>
+        </div>
+
+
+        <div class="media-grid">
+        </div>
+    </div>
+</section>
+
+<dialog id="mediaViewer" class="media-viewer">
+    <button class="media-viewer-close" id="closeMediaViewer" type="button" aria-label="Close">Ã—</button>
+    <img id="mediaViewerImage" src="" alt="" />
+</dialog>
+    </main>
+
+    <footer b-waz0jf3yuh class="footer container">
+        <div b-waz0jf3yuh class="footer-links">
+            <a b-waz0jf3yuh href="#x" target="_blank" aria-label="X">
+                <img src="gfx/x.png?v=JTp9yPk7donUA1yJwRxkr3s8HZGer2i0ymt3b3YY0pU" alt="X" />
+            </a>
+
+            <a b-waz0jf3yuh href="#youtube" target="_blank" aria-label="YouTube">
+                <img src="gfx/youtube.png?v=A-ztica6hWRiJ-Xj2vH861eLSdOP3_jFzeh8AxVbg6M" alt="YouTube" />
+            </a>
+
+            <a b-waz0jf3yuh href="#discord" target="_blank" aria-label="Discord">
+                <img src="gfx/discord.png?v=85rlRHDtjnAt1gT0zx30zn742b6ZXLh-l-lNFAYTa7M" alt="Discord" />
+            </a>
+
+            <a b-waz0jf3yuh href="#reddit" target="_blank" aria-label="Reddit">
+                <img src="gfx/reddit.png?v=wPGb9mWurCuASo56D2A9-Ky_xckNu_gMzS0jah_WcN0" alt="Reddit" />
+            </a>
+
+            <a b-waz0jf3yuh href="#patreon" target="_blank" aria-label="Patreon">
+                <img src="gfx/patreon.png?v=xc_rJXUZEI1bolLFZhRPXREBsjxCYEb0kyBVfs4YVQw" alt="Patreon" />
+            </a>
+        </div>
+
+        <p b-waz0jf3yuh>&#xA9; 2026 From Mikael Wendt. All rights reserved.</p>
+    </footer>
+
+    <dialog b-waz0jf3yuh id="trailerModal" class="modal">
+        <div b-waz0jf3yuh class="modal-card ornate-panel">
+            <button b-waz0jf3yuh class="modal-close" id="closeTrailer" aria-label="Close" type="button">Ã—</button>
+
+            <h2 b-waz0jf3yuh>Trailer Placeholder</h2>
+
+            <p b-waz0jf3yuh>
+                Replace this with an embedded YouTube or Steam trailer iframe. The modal logic is already wired up.
+            </p>
+
+            <div b-waz0jf3yuh class="video-placeholder">Trailer goes here</div>
+        </div>
+    </dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-csharp.min.js"></script>
+
+    <script src="js/script.js?v=BoBmx2w6JHeEculvFuPb6DDTEMN9gb8DNy5XOCCn60o"></script>
+
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        if (window.Prism) {
+        Prism.highlightAll();
+        }
+
+        const observer = new MutationObserver(function (mutations) {
+        if (!window.Prism) {
+        return;
+        }
+
+        for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+        Prism.highlightAllUnder(node);
+        }
+        }
+        }
+        });
+
+        observer.observe(document.body, {
+        childList: true,
+        subtree: true
+        });
+        });
+    </script>
 </body>
 </html>
