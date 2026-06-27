@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #071019;
   --bg-2: #0c1620;
   --panel: rgba(10, 10, 12, 0.7);
@@ -977,7 +977,7 @@ a {
     }
 
         .hero-bullets li::before {
-            content: "✥";
+            content: "âœ¥";
             position: absolute;
             left: 0;
             top: -1px;
@@ -1744,7 +1744,7 @@ body.logo-docked .brand {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, rgba(0,0,0,0.65), transparent 40%, rgba(0,0,0,0.45)), url("/gfx/hero-bg-5.png") center / cover no-repeat;
+        background: linear-gradient(90deg, rgba(0,0,0,0.65), transparent 40%, rgba(0,0,0,0.45)), url("../gfx/hero-bg-5.png") center / cover no-repeat;
         opacity: 0.16;
         transform: scale(1.04);
         pointer-events: none;
