@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="From Scratch is a survival colony and roleplaying game about rebuilding from nothing in a hostile world.">
+  <title>From Scratch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="From Scratch home">
+        <span class="brand-mark">FS</span>
+        <span class="brand-text">From Scratch</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span>Menu</span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#game">Game</a>
+        <a href="#world">World</a>
+        <a href="#systems">Systems</a>
+        <a href="#news">News</a>
+        <a class="nav-cta" href="#wishlist">Wishlist</a>
+      </div>
+    </nav>
+
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Survival colony RPG</p>
+        <h1>Build a new society from nothing.</h1>
+        <p class="hero-text">From Scratch is a game about survivors, factions, brutal choices, settlement building, and emergent stories in a dangerous low-fantasy world.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#wishlist">Follow development</a>
+          <a class="button secondary" href="#game">Explore the game</a>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Game status card">
+        <div class="status-pill">In development</div>
+        <h2>Core fantasy</h2>
+        <p>You begin with nothing. Every tool, shelter, weapon, relationship, and settlement has to be earned.</p>
+        <ul>
+          <li>Colony survival</li>
+          <li>Action RPG elements</li>
+          <li>Deep NPC simulation</li>
+          <li>Emergent faction conflict</li>
+        </ul>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section-shell split" id="game">
+      <div>
+        <p class="eyebrow">The game</p>
+        <h2>Survive, organize, and expand.</h2>
+      </div>
+      <div class="text-block">
+        <p>From Scratch combines settlement management with grounded survival and character-driven stories. Your people need food, tools, shelter, protection, and leadership.</p>
+        <p>The world is intended to react to your decisions. A small camp can become a faction. A mistake can become a crisis. A weak survivor can become essential.</p>
+      </div>
+    </section>
+
+    <section class="feature-grid section-shell" id="systems" aria-label="Game systems">
+      <article class="feature-card">
+        <h3>Settlement building</h3>
+        <p>Gather materials, construct shelters, expand production, and turn a desperate camp into a functioning society.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Character simulation</h3>
+        <p>NPCs have needs, skills, personalities, relationships, and memories that shape how they behave.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Combat and injury</h3>
+        <p>Combat is designed around risk, stamina, wounds, equipment, and consequences rather than disposable health bars.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Crafting from materials</h3>
+        <p>Weapons, tools, and structures are affected by the materials used to create them.</p>
+      </article>
+    </section>
+
+    <section class="section-shell world-panel" id="world">
+      <div class="world-copy">
+        <p class="eyebrow">The world</p>
+        <h2>A hostile vertical forest surrounded by mountains.</h2>
+        <p>Huge trees, distant factions, scarce resources, and strange civilizations define the setting. The goal is a believable world where survival, culture, technology, and power all matter.</p>
+      </div>
+      <div class="world-stats">
+        <div>
+          <strong>100k+</strong>
+          <span>Simulated individuals planned</span>
+        </div>
+        <div>
+          <strong>600+</strong>
+          <span>Background templates planned</span>
+        </div>
+        <div>
+          <strong>Low fantasy</strong>
+          <span>Grounded tone, harsh consequences</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell news-section" id="news">
+      <div class="section-heading">
+        <p class="eyebrow">Development news</p>
+        <h2>Latest updates</h2>
+      </div>
+      <div class="news-grid">
+        <article class="news-card">
+          <p class="news-date">Development log</p>
+          <h3>Static site is live</h3>
+          <p>The public website is now prepared as a static site, ready for GitHub Pages hosting.</p>
+          <a href="news/static-site-live.html">Read more</a>
+        </article>
+        <article class="news-card">
+          <p class="news-date">Design note</p>
+          <h3>Why start from nothing?</h3>
+          <p>The central fantasy is not owning a kingdom. It is building one from scraps, pressure, and bad choices.</p>
+          <a href="news/starting-from-nothing.html">Read more</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell wishlist" id="wishlist">
+      <p class="eyebrow">Follow development</p>
+      <h2>From Scratch is currently in development.</h2>
+      <p>More screenshots, devlogs, videos, and release information will be added here as the project develops.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="https://github.com/wendten/FromScratchWebsite">View repository</a>
+        <a class="button secondary" href="mailto:">Contact</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section-shell footer-inner">
+      <p>© <span id="year"></span> From Scratch</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
